@@ -1,0 +1,15 @@
+version: '3'
+services:
+  jenkins:
+    build: .
+    ports:
+     - "8080:8080"
+     - "50000:50000"
+    volumes:
+     - /Users/tine/tmp/jenkinshome:/var/jenkins_home
+    links:
+    - slave
+  slave:
+    build: ./slave
+    ports:
+     - 22
